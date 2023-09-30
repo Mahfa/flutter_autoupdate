@@ -115,7 +115,7 @@ class UpdateResult {
       var sha512 = crypto.sha512.convert(bytes);
       // Checksum is identical
       // Emit completed event
-      if (sha512.toString() == this.sha512) {
+      if (sha512.toString().toLowerCase() == this.sha512.toLowerCase()) {
         controller.add(DownloadProgress.completedEvent(path));
       } else {
         _beginDownload(controller, path);
